@@ -39,3 +39,22 @@ document.addEventListener("DOMContentLoaded", () => {
         calculateAge();
     });
 });
+function displayZodiacSign() {
+    let birthDate = document.getElementById("BirthDate").value;
+    let date = new Date(birthDate);
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let zodiacSign = GetZodiacSign(day, month);
+    document.getElementById("zodiacSign").textContent = zodiacSign;
+}
+function displayAge() {
+    let birthDate = document.getElementById("BirthDate").value;
+    let date = new Date(birthDate);
+    let today = new Date();
+    let age = today.getFullYear() - date.getFullYear();
+    let monthDifference = today.getMonth() - date.getMonth();
+    if (monthDifference < 0) {
+        age--;
+    }
+    document.getElementById("age").textContent = age;
+}
